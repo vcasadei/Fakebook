@@ -2,11 +2,12 @@ class FollowingsController < ApplicationController
   # GET /followings
   # GET /followings.json
   def index
-    @followings = Following.all
+    @profiles = Profile.all
+    #@followings = Following.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @followings }
+      #format.json { render json: @followings }
     end
   end
 
@@ -40,11 +41,12 @@ class FollowingsController < ApplicationController
   # POST /followings
   # POST /followings.json
   def create
-    @following = Following.new(params[:following])
+    @profile = current_user.profile
+    @following = @profile.followings.build(params[:following])
 
     respond_to do |format|
       if @following.save
-        format.html { redirect_to @following, notice: 'Following was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Following was successfully created.' }
         format.json { render json: @following, status: :created, location: @following }
       else
         format.html { render action: "new" }

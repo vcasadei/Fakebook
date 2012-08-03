@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120802224816) do
+ActiveRecord::Schema.define(:version => 20120803140432) do
+
+  create_table "followings", :force => true do |t|
+    t.integer  "profile_id"
+    t.boolean  "accepted"
+    t.boolean  "blocked"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "full_name"

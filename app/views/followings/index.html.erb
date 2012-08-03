@@ -1,25 +1,19 @@
-<h1>Listing followings</h1>
+<h1>Listing profiles</h1>
 
 <table>
   <tr>
-    <th>Accepted</th>
-    <th>Blocked</th>
-    <th></th>
+    <th>Full name</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @followings.each do |following| %>
+<% @profiles.each do |profile| %>
   <tr>
-    <td><%= following.accepted %></td>
-    <td><%= following.blocked %></td>
-    <td><%= link_to 'Show', following %></td>
-    <td><%= link_to 'Edit', edit_following_path(following) %></td>
-    <td><%= link_to 'Destroy', following, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= profile.full_name %></td>
+    <td><%= link_to 'View profile', profile %></td>
+    <td><%= link_to 'Follow', followings_path(:id => profile), :method => :post %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Following', new_following_path %>
