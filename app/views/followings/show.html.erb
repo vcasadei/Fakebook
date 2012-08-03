@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Accepted:</b>
+  <%= @following.accepted %>
+</p>
+
+<p>
+  <b>Blocked:</b>
+  <%= @following.blocked %>
+</p>
+
+
+<%= link_to 'Edit', edit_following_path(@following) %> |
+<%= link_to 'Back', followings_path %>
