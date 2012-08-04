@@ -29,7 +29,8 @@
   </div>
   <div class="field">
     <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
+    <%= f.date_select :birthday, :start_year => Time.now.year - 100,
+    :end_year => Time.now.year, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :gender %><br />
