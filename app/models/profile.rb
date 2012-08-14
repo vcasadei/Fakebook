@@ -13,4 +13,5 @@ class Profile < ActiveRecord::Base
             :inclusion => %w(male female)
   #Associations          
   belongs_to :user
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
 end
