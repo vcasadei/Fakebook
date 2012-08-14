@@ -3,7 +3,12 @@ Fakebook::Application.routes.draw do
   get "home/index"
   #Aninhando profiles dentro do user
   devise_for :users, :controllers => { :registrations => "registrations" } do
-    resources :profiles  
+    resources :profiles  do
+      member do
+        get :following, :followers
+      end
+      resources :relationships
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
