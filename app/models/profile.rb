@@ -19,6 +19,8 @@ class Profile < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+attr_accessible :profile_attributes
+
   #Functions
   def following?(other_profile)
     relationships.find_by_followed_id(other_profile.id)
