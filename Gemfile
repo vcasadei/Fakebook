@@ -21,6 +21,17 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "rails-simple-search", "~> 0.9.1"
+
+group :test do
+  # Pretty printed test output
+  gem 'turn', '0.8.2', :require => false
+  gem "mocha"
+end
+
+group :development do
+  gem "nifty-generators"
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
