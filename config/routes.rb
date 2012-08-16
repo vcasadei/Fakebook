@@ -1,8 +1,11 @@
 Fakebook::Application.routes.draw do
   root :to => 'home#index'
   get "home/index"
+
+#devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   #Aninhando profiles dentro do user
-  devise_for :users, :controllers => { :registrations => "registrations" } do
+  devise_for :users, :controllers => { :registrations => "registrations",:omniauth_callbacks => "users/omniauth_callbacks" } do
     resources :profiles  do
       member do
         get :following, :followers
