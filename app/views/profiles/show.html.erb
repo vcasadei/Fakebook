@@ -1,65 +1,73 @@
+
 <p id="notice"><%= notice %></p>
+<div id="showprofile">
 
-<p>
-  <b>Full name:</b>
-  <%= @profile.full_name %>
-</p>
+  <p>
+    <%= image_tag("perfil2.png", :title=> "Profile Picture" , :size=> "200x200")%>
+  </p>
 
-<p>
-  <b>About:</b>
-  <%= @profile.about %>
-</p>
+  <p>
+    <b>Full name:</b>
+    <%= @profile.full_name %>
+  </p>
 
-<p>
-  <b>Website:</b>
-  <%= @profile.website %>
-</p>
+  <p>
+    <b>About:</b>
+    <%= @profile.about %>
+  </p>
 
-<p>
-  <b>Contact email:</b>
-  <%= @profile.contact_email %>
-</p>
+  <p>
+    <b>Website:</b>
+    <%= @profile.website %>
+  </p>
 
-<p>
-  <b>Birthday:</b>
-  <%= @profile.birthday %>
-</p>
+  <p>
+    <b>Contact email:</b>
+    <%= @profile.contact_email %>
+  </p>
 
-<p>
-  <b>Gender:</b>
-  <%= @profile.gender %>
-</p>
+  <p>
+    <b>Birthday:</b>
+    <%= @profile.birthday %>
+  </p>
 
-<p>
-  <b>Country:</b>
-  <%= @profile.country %>
-</p>
+  <p>
+    <b>Gender:</b>
+    <%= @profile.gender %>
+  </p>
 
-<p>
-  <b>State:</b>
-  <%= @profile.state %>
-</p>
+  <p>
+    <b>Country:</b>
+    <%= @profile.country %>
+  </p>
 
-<p>
-  <b>City:</b>
-  <%= @profile.city %>
-</p>
+  <p>
+    <b>State:</b>
+    <%= @profile.state %>
+  </p>
 
-<p>
-  <b>High school:</b>
-  <%= @profile.high_school %>
-</p>
+  <p>
+    <b>City:</b>
+    <%= @profile.city %>
+  </p>
 
-<p>
-  <b>College:</b>
-  <%= @profile.college %>
-</p>
+  <p>
+    <b>High school:</b>
+    <%= @profile.high_school %>
+  </p>
 
-<p>
-  <b>Work at:</b>
-  <%= @profile.work_at %>
-</p>
+  <p>
+    <b>College:</b>
+    <%= @profile.college %>
+  </p>
+
+  <p>
+    <b>Work at:</b>
+    <%= @profile.work_at %>
+  </p>
+
 
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', root_path %>
+</div>

@@ -24,7 +24,7 @@ a {
   height: 100%;
   margin: 0 auto;
   background-color: #FFF;
-  text-color:#000;
+  color:#000;
   border: solid 1px black;
   padding:0;
 }
@@ -115,4 +115,120 @@ a {
   padding:8px;
   border-top: 1px solid #000;
   float: absolut;
+}
+
+#home{
+  height:500px;
+  border-right:1px solid #999;
+  padding:8px;
+  margin-right: 10px;
+}
+
+#login{
+  padding: 20px;
+  margin-left: 10px;
+  font-size:20px;
+}
+
+#login li{
+  margin-left: 25px;
+  list-style: none;
+}
+
+#login li a {
+text-decoration:underline;
+list-style: underline;
+color: #0000CD;
+}
+#login li a:visited {
+color: #0000CD;
+}
+#login li a:hover { 
+color: #0000CD; 
+list-style: none;
+text-decoration:none;
+}
+#login li a:active { 
+background: #CCC;
+color: #000; 
+}
+
+#logout {
+  
+  margin-left: 52%;
+
+}
+
+#logout a{
+  padding: 15px;
+  text-decoration:none;
+  list-style: none;
+  height: 60px;
+  color: #CCCCCC;
+  background: #004400;
+}
+
+#logout a:hover{
+  padding: 15px;
+  text-decoration:underline;
+  list-style: none;
+  height: 60px;
+  color: #FFFFFF;
+  background: #005500;
+}
+
+#log {
+  margin-left: 84%;
+
+}
+
+#log a{
+  padding: 15px;
+  text-decoration:none;
+  list-style: none;
+  height: 60px;
+  color: #CCCCCC;
+  background: #004400;
+}
+
+#log a:hover{
+  padding: 15px;
+  text-decoration:underline;
+  list-style: none;
+  height: 60px;
+  color: #FFFFFF;
+  background: #005500;
+}
+
+#imagem {
+  margin-left: 20%;
+}
+
+#showprofile{
+  border-right: 1px solid #000;
+  width: 22%;
+  padding-right: 10px;
+  height:100%;
+}
+
+#showprofile img{
+  border: 1px solid #CCC;
+}
+
+
+a {
+text-decoration:underline;
+list-style: underline;
+color: #0000CD;
+}
+a:visited {
+color: #0000CD;
+}
+a:hover { 
+color: #0000CD; 
+list-style: none;
+text-decoration:none;
+}
+a:active { 
+color: #000; 
 }

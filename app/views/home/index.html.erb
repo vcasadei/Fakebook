@@ -1,8 +1,18 @@
-<h1>Welcome to Fakebook!!!</h1>
-<p>Test for something that's not working yet!</p>
-<% if user_signed_in? %>
-	<li><%= link_to('Edit Account', edit_user_registration_path)%></li>
-	<li><%= link_to('Logout', destroy_user_session_path, :method => :delete)%></li>  	
-<% else %>
-	<li><%= link_to('Login', new_user_session_path)%></li>
-<% end %>
+<div align = center>
+	<h1>Welcome to Fakebook!!!</h1>
+	<hr style="margin-left:5%;">
+</div>
+
+			<div id="login">
+			
+				<% if user_signed_in? %>
+					<p align = center><b>Click, Edit your Account, your Profile or Logout, explore the resourses, have fun and Enjoy the Fakebook Social Network!</b></p>
+					  	
+				<% else %>
+					<p align = center><b>Click, Make your login, explore the resourses, have fun and Enjoy the Fakebook Social Network!</b></p>
+					
+				<% end %>
+			</div>
+			<div id="imagem">
+				<%= image_tag("home.png", :title=>"Welcome to Fakebook - Your FakeSocial Network!", :size=> "600x420")%>
+			</div>
