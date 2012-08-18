@@ -8,6 +8,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in @user, :event => :authentication
       if @user.sign_in_count == 1
       	redirect_to '/profiles/new'
+      	else
+      	redirect_to '/home/index' #precisa deixar mais restful
       end
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
