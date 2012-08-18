@@ -7,7 +7,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
       sign_in @user, :event => :authentication
       if @user.sign_in_count == 1
-      	redirect_to '/profiles/new'
+      	#@user.build_profile
+      	@user.profile=@user.create_profile
+      	#@user.profile=@user.profile.create()
+      	#redirect_to '/profiles/edit'
+      	redirect_to '/home/index'
       	else
       	redirect_to '/home/index' #precisa deixar mais restful
       end

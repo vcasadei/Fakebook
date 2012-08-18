@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
   # attr_accessible :title, :body
   has_one :profile, dependent:   :destroy
+  accepts_nested_attributes_for :profile
 #	accepts_nested_attributes_for :profile
-#	attr_accessible :profile_attributes, :profiles_attributes, :profile
+	attr_accessible :profile_attributes
 #do omniuath-facebook
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -33,11 +34,19 @@ user
  
 end
 
+def with_profile
+  self.profile.build
+  self
+end
+
+
 after_initialize do
-  #self.profile ||= self.build_profile()
+ # self.profile ||= self.build_profile()
+	#self.save
 end
 
 def self.new_with_session(params, session)
+	#user.profile=user.profile.build()
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
