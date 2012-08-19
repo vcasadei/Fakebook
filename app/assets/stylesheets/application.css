@@ -154,9 +154,8 @@ color: #000;
 }
 
 #logout {
-  
   margin-left: 52%;
-
+  display: inline;
 }
 
 #logout a{
