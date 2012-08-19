@@ -149,13 +149,14 @@ list-style: none;
 text-decoration:none;
 }
 #login li a:active { 
-background: #CCC;
-color: #000; 
+	background: #CCC;
+	color: #000; 
 }
 
 #logout {
-  margin-left: 52%;
   display: inline;
+  width: 100%;
+  text-align: right;
 }
 
 #logout a{
