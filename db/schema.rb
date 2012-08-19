@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(:version => 20120819193750) do
 
+  create_table "conversa_ativas", :force => true do |t|
+    t.integer  "destinatario"
+    t.integer  "remetente"
+    t.integer  "status"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "eventos", :force => true do |t|
     t.integer  "profile_id"
     t.string   "nome"
@@ -24,21 +32,6 @@ ActiveRecord::Schema.define(:version => 20120819193750) do
     t.string   "criador"
   end
 
-  create_table "participacao_eventos", :id => false, :force => true do |t|
-    t.integer  "evento_id"
-    t.integer  "profile_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-create_table "conversa_ativas", :force => true do |t|
-    t.integer  "destinatario"
-    t.integer  "remetente"
-    t.integer  "status"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "mensagens", :force => true do |t|
     t.integer  "destinatario"
     t.integer  "remetente"
@@ -46,6 +39,13 @@ create_table "conversa_ativas", :force => true do |t|
     t.integer  "lida"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "participacao_eventos", :id => false, :force => true do |t|
+    t.integer  "evento_id"
+    t.integer  "profile_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "participacao_eventos", ["evento_id", "profile_id"], :name => "index_relationships_on_evento_id_and_profile_id", :unique => true
@@ -98,6 +98,8 @@ create_table "conversa_ativas", :force => true do |t|
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "online"
+    t.integer  "signed_in"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
