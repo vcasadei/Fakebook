@@ -7,6 +7,262 @@
     
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
+
+  <%= javascript_include_tag "jquery-1.8.0.min" %>
+  <%= javascript_include_tag "jquery-ui-1.8.23.custom.min" %>
+
+  <%= stylesheet_link_tag "jquery-ui-1.8.23.custom" %>
+  
+
+<% if user_signed_in? %> 
+<%= javascript_include_tag "replace_all" %>
+
+<!-- INÍCIO CABEÇALHO CHAT -->
+
+<%= stylesheet_link_tag "mensagens" %>
+<script type="text/javascript">
+
+   var remetente = <%= current_user.id %>;
+   var on = 0;
+
+ function conecta(id,obj) {
+
+	var s = "/mensagens/set_online/" + remetente; 
+	$.post(s,  {online: on } );
+
+	if (on==1) {
+          obj.innerHTML = '<%= image_tag "on.png", :size => "13x13" %>';
+          var imagem = document.getElementById
+          on = 0; 
+        } else{
+          obj.innerHTML =  '<%= image_tag "off.png", :size => "13x13" %>'
+          on = 1;
+        }
+		
+ }
+
+
+function adicionaEmoticon(qual,id) {
+
+  var emoticon;
+
+  if(qual == 1) { emoticon = "(:";}
+  if(qual == 2) { emoticon = "):";}
+  if(qual == 3) { emoticon = "o:";}
+  if(qual == 4) { emoticon = "x:";}
+  if(qual == 5) { emoticon = "D:";}
+  if(qual == 6) { emoticon = "@:";}
+  if(qual == 7) { emoticon = "C:";}
+
+  var nome = "chat_textarea_"+id;
+  var textoAtual = document.getElementById(nome).value;
+  textoAtual+=emoticon;
+  document.getElementById(nome).value = textoAtual;
+
+  $('#' + nome). focus();
+
+}
+   function chat_janela_controle() {
+
+     if($('#chat_contatos').is(":visible")) {
+      $('#chat_contatos').hide();
+      $('.chat_conversa_tudo').css('margin-top','0');
+      $('#chat_principal').css('margin-top','248px');
+     } else {
+      $('#chat_contatos').show();
+      $('.chat_conversa_tudo').css('margin-top','202px');
+      $('#chat_principal').css('margin-top','48px');
+     }
+
+   }
+
+   function mostra_historico(id) {
+
+     $.getJSON("/mensagens/history/",{ destinatario: id, remetente: remetente },
+     function(data) {
+
+        $('#historico_dialog').html('');
+
+        var nomes = new Array();
+
+        $.getJSON("/mensagens/getUser.json?user=" + remetente,
+          function(user) {
+		nomes[remetente] = user[0].full_name;
+
+            $.getJSON("/mensagens/getUser.json?user=" + id,
+              function(dest) {
+	          nomes[id] = dest[0].full_name;
+
+                  $.each(data, function(i,item){
+
+                    $('#historico_dialog').append(nomes[item.remetente]  + "->" + nomes[item.destinatario] + " : " + verifica_emoticon(item.mensagem) + "<br/>");
+	  
+                  });
+           });
+
+        });
+
+     $('#historico_dialog').dialog({
+       width: 400,
+       height: 300,
+       modal: true
+     });
+
+}
+);
+
+   }
+   function digita_mensagem(id, e) {
+
+      if(e.which == 13) {
+
+       $.post('/mensagens/envia_mensagem',
+              {mensagem: {destinatario: id, remetente: remetente, lida: 0, mensagem: $('#chat_textarea_' + id).val()}},
+              function(data) {
+               
+              });
+
+        $("#chat_conversa_" + id).append('<h2>You</h2>');
+        $("#chat_conversa_" + id).append(verifica_emoticon($('#chat_textarea_' + id).val()));
+        $("#chat_conversa_" + id).attr({ scrollTop: $("#chat_conversa_" + id).attr("scrollHeight") });
+        $('#chat_textarea_' + id).val('');
+
+       }
+
+   }
+
+   function atualiza_online() {
+
+    $.getJSON("/mensagens/getOnlineUsers/"+ remetente +".json",
+     function(data) {
+      $('#chat_amigos_online').html('');
+      $.each(data, function(i,item){
+       $('#chat_amigos_online').append('<li chat_amigoid="'+ item.id +'" class="chat_amigo_online" onclick="abre_janela('+ item.id +',\''+ item.full_name +'\', false);">'+ item.full_name +'</li>');
+      });
+     });
+
+   }
+
+
+   function atualiza_conversa(destinatario) {
+
+    $.getJSON("/mensagens/atualiza_conversas/" + destinatario + ".json",
+     function(data) {
+      $.each(data, function(i,item){
+       
+        $.getJSON("/mensagens/getUser.json?user=" + item.remetente,
+         function(user) {
+          
+          abre_janela(item.remetente, user[0].full_name, false);
+     
+          $("#chat_conversa_" + item.remetente).append('<h2>'+ user[0].full_name +'</h2>');
+          $("#chat_conversa_" + item.remetente).append(verifica_emoticon(item.mensagem));
+          $("#chat_conversa_" + item.remetente).attr({ scrollTop: $("#chat_conversa_" + item.remetente).attr("scrollHeight") });
+
+       });
+
+      });
+     });
+
+   }
+
+   function abre_janela(id, nome, existe) {
+
+
+       // se a janela não está aberta, ela é criada
+       if($("#chat_conversa_tudo_" + id).length == 0) {
+        $('#chat_container').append('<div id="chat_conversa_tudo_'+ id +'" class="chat_conversa_tudo"><h1>'+ nome +'<a style="float: right; z-index: 9999; color: #FFFFFF; cursor: pointer; padding-right: 5px;" onclick="mostra_historico('+ id +');">[H]</a><a style="float: right; z-index: 9999; color: #FFFFFF; cursor: pointer; padding-right: 5px;" onclick="fecha_janela('+ id +');">[X]</a></h1><div class="chat_conversa" id="chat_conversa_'+ id +'"></div><textarea class="chat_textarea" id="chat_textarea_'+ id +'"></textarea><div style="padding-left:5px; float:left;" onClick="adicionaEmoticon(1,'+id+');" > <%= image_tag "1.png", :size => "15x15"%> </div>'+
+'<div  style="padding-left:5px; float:left;" onClick="adicionaEmoticon(2,'+id+');" > <%= image_tag "2.png", :size => "15x15"%> </div>'+
+'<div  style="padding-left:5px; float:left;" onClick="adicionaEmoticon(3,'+id+');" > <%= image_tag "3.png", :size => "15x15"%> </div>'+
+'<div  style="padding-left:5px; float:left;" onClick="adicionaEmoticon(4,'+id+');" > <%= image_tag "4.png", :size => "15x15"%> </div>'+
+
+'<div  style="padding-left:5px; float:left;" onClick="adicionaEmoticon(5,'+id+');" > <%= image_tag "5.png", :size => "15x15"%> </div>'+
+
+'<div  style="padding-left:5px; float:left;" onClick="adicionaEmoticon(6,'+id+');" > <%= image_tag "6.png", :size => "15x15"%> </div>'+
+
+'<div  style="padding-left:5px; float:left;" onClick="adicionaEmoticon(6,'+id+');" > <%= image_tag "7.png", :size => "15x15"%> </div>'+
+'</div>');
+
+$('#chat_textarea_'+ id).keyup(function(e) {digita_mensagem(id, e);});
+
+
+       if(!existe) {
+        $.post("/mensagens/abre_janela/", { destinatario: id, remetente: remetente } );
+       }
+
+       }
+
+   }
+
+   function fecha_janela(id) {
+    $('#chat_conversa_tudo_'+ id).remove();
+    $.post("/mensagens/fecha_janela/", { destinatario: id, remetente: remetente } );
+   }
+
+   // atualizações periódicas
+   var intervalo = window.setInterval(atualizacoes, 2000);
+   function atualizacoes() {
+     atualiza_online();
+     atualiza_conversa(remetente);
+   }
+
+   // verifica se tem emoticons
+   function verifica_emoticon(texto) {
+
+     var novo;
+
+     novo = str_replace('(:', '<%= image_tag "1.png", :size => "15x15"%>', texto);
+     novo = str_replace('):', '<%= image_tag "2.png", :size => "15x15"%>', novo);
+     novo = str_replace('o:', '<%= image_tag "3.png", :size => "15x15"%>', novo);
+     novo = str_replace('x:', '<%= image_tag "4.png", :size => "15x15"%>', novo);
+     novo = str_replace('D:', '<%= image_tag "5.png", :size => "15x15"%>', novo);
+     novo = str_replace('@:', '<%= image_tag "6.png", :size => "15x15"%>', novo);
+     novo = str_replace('C:', '<%= image_tag "7.png", :size => "15x15"%>', novo);
+
+     return novo;
+
+   }
+
+   $(document).ready(function() {
+
+    atualizacoes();
+
+    // verifica se existe alguma janela aberta em páginas anteriores
+    $.getJSON("/mensagens/janelas_abertas.json", {remetente: remetente},
+         function(data) {
+
+          $.each(data, function(i,item){
+       
+           $.getJSON("/mensagens/getUser.json?user=" + item.destinatario,
+            function(user) {
+             abre_janela(item.destinatario, user[0].full_name, true);
+           });
+
+         });
+
+   });
+
+   // verifica o status do usuário
+   $.getJSON("/mensagens/getUser.json?user=" + remetente,
+         function(user) {
+          if(user != undefined && user[0] != undefined && user[0].signed_in != undefined && user[0].signed_in == 1 && user[0].online != undefined && user[0].online == 1) {
+            // está online
+            $('#chat_online').html('<%= image_tag "on.png", :size => "13x13" %>');
+            on = 0; 
+          } else{
+            $('#chat_online').html('<%= image_tag "off.png", :size => "13x13" %>');
+            on = 1;
+          }
+
+       });
+
+   });
+
+</script>
+<% end %>
+
+<!-- FIM CABEÇALHO CHAT -->
+
   </head>
   <body>
     <div id="container">
@@ -49,5 +305,32 @@
        <center> Fakebook © 2012 </center>
       </div> 
     </div>
+
+<!-- INÍCIO CHAT -->
+<% if user_signed_in? %> 
+<div id="chat_container" >
+
+   <div id="chat_principal" >
+	
+    <h1 onclick="chat_janela_controle();">Chat</h1>
+	<div id="chat_online" onClick="conecta(remetente,this);"  ></div>
+
+     <div id="chat_contatos" style="clear:both;">
+      <h2>Followers online</h2>
+
+       <ul id="chat_amigos_online">
+        
+       </ul>
+
+     </div>
+
+   </div>
+
+  </div>
+
+<div id="historico_dialog" title="All messages" style="display: none;"></div>
+<% end %>
+<!-- FIM CHAT -->
+
   </body>
 </html>

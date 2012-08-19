@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(:version => 20120819193750) do
     t.datetime "updated_at", :null => false
   end
 
+create_table "conversa_ativas", :force => true do |t|
+    t.integer  "destinatario"
+    t.integer  "remetente"
+    t.integer  "status"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "mensagens", :force => true do |t|
+    t.integer  "destinatario"
+    t.integer  "remetente"
+    t.string   "mensagem"
+    t.integer  "lida"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   add_index "participacao_eventos", ["evento_id", "profile_id"], :name => "index_relationships_on_evento_id_and_profile_id", :unique => true
   add_index "participacao_eventos", ["evento_id"], :name => "index_participacao_eventos_on_evento_id"
   add_index "participacao_eventos", ["profile_id"], :name => "index_relationships_on_profile_id"
