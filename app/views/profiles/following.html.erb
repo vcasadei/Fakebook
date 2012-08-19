@@ -1,0 +1,22 @@
+<h1>Following</h1>
+<%if current_user.profile.followeds.empty?%>
+	<p>You are following no one!</p>
+<%else%>
+	<table>
+  		<tr>
+    	<th>Full name</th>
+    	<th></th>
+    	<th></th>
+  	</tr>
+
+	<% @profiles.each do |profile| %>
+  		<tr>
+    		<td><%= profile.full_name %></td>
+    		<td><%= link_to 'View profile', profile %></td>
+    		<td><%= link_to 'Back', root_path %></td>
+  		</tr>
+	<% end %>
+	</table>
+<%end%>
+
+<br />

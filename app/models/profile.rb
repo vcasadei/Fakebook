@@ -13,15 +13,13 @@ class Profile < ActiveRecord::Base
  #           :inclusion => %w(male female)
   #Associations          
   belongs_to :user
-  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationships, source: :followed
+  has_many :relationships, foreign_key: "follower_id"
+  has_many :followers, through: :reverse_relationships, source: :follower #Seguidores
+  has_many :followeds, through: :relationships, source: :followed #Seguindo
   has_many :reverse_relationships, foreign_key: "followed_id",
-                                   class_name:  "Relationship",
-                                   dependent:   :destroy
-  has_many :followers, through: :reverse_relationships, source: :follower
-attr_accessible :profile_attributes
-
-  #Functions
+                                   class_name:  "Relationship"
+  
+  #Functions Following
   def following?(other_profile)
     relationships.find_by_followed_id(other_profile.id)
   end
