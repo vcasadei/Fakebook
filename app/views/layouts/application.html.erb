@@ -20,24 +20,20 @@
             </td>
 
             <td>
-              
-            </td>
-
-            <td>
-              <div id="logout">
                 <% if user_signed_in? %> 
-                   <%= link_to('View Profile', profile_path(current_user.profile))%> 
-                 <%= link_to('Edit Profile', edit_profile_path(current_user.profile))%> 
+                <div id="logout">
+			            <%= link_to('View Profile', profile_path(current_user.profile))%> 
+			            <%= link_to('Edit Profile', edit_profile_path(current_user.profile))%> 
                  
                   <%= link_to('Edit Account', edit_user_registration_path)%>
                   <%= link_to('Logout', destroy_user_session_path, :method => :delete)%>
-                  
+              	</div>    
                 <% else %>
                 <div id="log">
                   <%= link_to('Login', new_user_session_path)%>
                 </div>
                 <% end %>
-              </div>
+              
             </td>
           </tr>
         </table>

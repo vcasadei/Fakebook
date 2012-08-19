@@ -154,9 +154,10 @@ color: #000;
 }
 
 #logout {
-  
   margin-left: 52%;
   display: inline;
+  width: 100%;
+  text-align: right;
 }
 
 #logout a{
