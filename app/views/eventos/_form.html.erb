@@ -1,0 +1,20 @@
+<%= form_for @evento do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :data %><br />
+    <%= f.datetime_select :data, :order => [:day, :month, :year]  %>
+  </p>
+  <p>
+    <%= f.label :local %><br />
+    <%= f.text_field :local %>
+  </p>
+  <p>
+    <%= f.label :descrição %><br />
+    <%= f.text_area :desc , :rows => 5, :cols => 32, :maxlength => 150 %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,41 @@
+<% title "Eventos" %>
+<% @profile_id = current_user.profile.id %>
+<p><%= link_to "Crie seu Evento", new_evento_path %></p>
+<%= form_for @search, :url => "/eventos/pesquisa" do |f| %>
+<table> 
+  <tr>
+     <td>Nome:</td>  
+     <td>Local:</td>
+     <td>Dono do Evento:</td>
+  </tr> 
+  <tr>
+     <td><% String campo = 'nome' %>
+        <%= f.text_field campo, size:20 %></td> 
+     <td><%= f.text_field 'local', size:20 %></td> 
+     <td><%= f.text_field 'full_name', size:20 %></td>      
+     <td><%= f.submit "Pesquisar" %></td>
+  </tr>
+ </table> 
+<% end %>
+
+<br/> 
+<hr/>
+<table>
+   <% for evento in @eventos %>
+	  <p>
+	  <tr><td><strong>Nome:</strong></td><td><%= evento.nome %></td></tr>
+	  <tr><td><strong>Data:</strong> </td><td><%= evento.data.strftime('%d %b %Y') %><div id="spc"><div/></td>
+	  <td>&#32;&#32;<%= link_to "Visualizar", evento %></td>
+	  <% unless evento.profile_id != @profile_id %>
+		<td><%= link_to "Editar", edit_evento_path(evento) %></td>
+		<td>&#32;&#32;<%= link_to "Excluir", evento, :confirm => 'tem certeza que deseja excluir?', :method => :delete %></td></tr>
+	  <% else %>
+		<td>&#32;&#32;<%= link_to "Participar", evento_participar_path(evento), :confirm => 'tem certeza que deseja participar do evento?' %></td></tr>
+	  <% end %>
+	  <tr><td><strong>Local:</strong></td><td><%= evento.local %>   </td></tr>
+	  <tr><td><div id="spc2"><div/><td> </tr>
+	  </p>
+    <% end %>
+    <%= paginate @eventos %>
+</table>
+<p><%= link_to "Voltar", home_index_path%></p>

@@ -1,7 +1,20 @@
 Fakebook::Application.routes.draw do
   root :to => 'home#index'
   get "home/index"
-
+resources :eventos do
+	post :pesquisa, on: :collection
+	resources :participacao_eventos
+  member do
+    get :evento, :profile
+  end
+	match '/participar', :controller => 'eventos', :action => "participar"
+end
+  match '/eventos/index', :controller => 'eventos', :action => "index"
+  #resources :eventos do get :show2, on: :collection end
+    #match'/eventos/show2', :controller => 'eventos', :action => 'show2'
+  #match "/eventos/show2/:id" => "eventos#show2"
+  #match '/eventos/show2/:id', :controller => 'eventos', :action => "show2"
+  #get "eventos/show2/:id"
 #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   #Aninhando profiles dentro do user

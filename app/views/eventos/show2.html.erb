@@ -1,0 +1,45 @@
+<% title   @evento.nome  %>
+
+<div id="lateral">
+
+    <div id= "image">
+      <center>
+       <%= image_tag("eventos.png", :alt=>"ok", :size=> "180x180")%>
+      </center>
+    </div>
+  </br>
+    <p>
+      <strong>Participantes:</strong>
+    </p>
+
+<p>
+
+</p>
+</div><div id="conteudo">
+  
+<p>
+  <strong>Data:</strong>
+  <%= @evento.data.strftime('%d %b %Y') %>
+
+</p>
+<p>
+  <strong>Horario:</strong>
+    <%= @evento.data.strftime('%Hh') %>
+    
+    <%= @evento.data.strftime('%M') %>
+</p>
+
+
+<p>
+  <strong>Local:</strong>
+  <%= @evento.local %>
+</p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @evento.desc %>
+</p>
+  
+  
+</div>
+  <%= link_to "Participar", @evento, :confirm => 'Deseja Participar?', :method => :participar %> |
+  <%= link_to "Voltar", eventos_path %>

@@ -1,0 +1,18 @@
+<%= form_for(@participacao_evento) do |f| %>
+  <% if @participacao_evento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participacao_evento.errors.count, "error") %> prohibited this participacao_evento from being saved:</h2>
+
+      <ul>
+      <% @participacao_evento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

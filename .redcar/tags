@@ -1,59 +1,89 @@
-1345068082
-Application	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/config/application.rb	  class Application 
-ApplicationController	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/application_controller.rb	class ApplicationController 
-ApplicationHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/application_helper.rb	module ApplicationHelper
-BrowsingTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/performance/browsing_test.rb	class BrowsingTest 
-CreateProfiles	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/db/migrate/20120802224816_create_profiles.rb	class CreateProfiles 
-CreateRelationships	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/db/migrate/20120814120857_create_relationships.rb	class CreateRelationships 
-DeviseCreateUsers	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/db/migrate/20120802222812_devise_create_users.rb	class DeviseCreateUsers 
-ErrorMessagesHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/error_messages_helper.rb	module ErrorMessagesHelper
-Fakebook	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/config/application.rb	module Fakebook
-FormBuilderAdditions	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/error_messages_helper.rb	  module FormBuilderAdditions
-HomeController	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/home_controller.rb	class HomeController 
-HomeControllerTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/functional/home_controller_test.rb	class HomeControllerTest 
-HomeHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/home_helper.rb	module HomeHelper
-HomeHelperTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/helpers/home_helper_test.rb	class HomeHelperTest 
-LayoutHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/layout_helper.rb	module LayoutHelper
-Profile	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/models/profile.rb	class Profile 
-ProfileTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/profile_test.rb	class ProfileTest 
-ProfilesController	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	class ProfilesController 
-ProfilesControllerTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/functional/profiles_controller_test.rb	class ProfilesControllerTest 
-ProfilesHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/profiles_helper.rb	module ProfilesHelper
-ProfilesHelperTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/helpers/profiles_helper_test.rb	class ProfilesHelperTest 
-RegistrationsController	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/registrations_controller.rb	class RegistrationsController 
-RegistrationsControllerTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/functional/registrations_controller_test.rb	class RegistrationsControllerTest 
-RegistrationsHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/registrations_helper.rb	module RegistrationsHelper
-RegistrationsHelperTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/helpers/registrations_helper_test.rb	class RegistrationsHelperTest 
-Relationship	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/models/relationship.rb	class Relationship 
-RelationshipTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/relationship_test.rb	class RelationshipTest 
-RelationshipsController	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/relationships_controller.rb	class RelationshipsController 
-RelationshipsControllerTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/functional/relationships_controller_test.rb	class RelationshipsControllerTest 
-RelationshipsHelper	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/relationships_helper.rb	module RelationshipsHelper
-RelationshipsHelperTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/helpers/relationships_helper_test.rb	class RelationshipsHelperTest 
-TestCase	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/test_helper.rb	class ActiveSupport::TestCase
-User	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/models/user.rb	class User 
-UserTest	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/unit/user_test.rb	class UserTest 
-after_sign_up_path_for	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/registrations_controller.rb	  def after_sign_up_path_for(resource)
-change	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/db/migrate/20120802222812_devise_create_users.rb	  def change
-change	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/db/migrate/20120802224816_create_profiles.rb	  def change
-change	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/db/migrate/20120814120857_create_relationships.rb	  def change
-create	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/relationships_controller.rb	  def create
-create	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def create
-destroy	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/relationships_controller.rb	  def destroy
-destroy	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def destroy
-edit	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def edit
-error_messages	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/error_messages_helper.rb	    def error_messages(options = {})
-error_messages_for	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/error_messages_helper.rb	  def error_messages_for(*objects)
-follow!	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/models/profile.rb	  def follow!(other_profile)
-following?	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/models/profile.rb	  def following?(other_profile)
-index	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/home_controller.rb	  def index
-index	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def index
-javascript	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/layout_helper.rb	  def javascript(*args)
-new	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def new
-show	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def show
-show_title?	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/layout_helper.rb	  def show_title?
-stylesheet	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/layout_helper.rb	  def stylesheet(*args)
-test_homepage	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/test/performance/browsing_test.rb	  def test_homepage
-title	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/helpers/layout_helper.rb	  def title(page_title, show_title = true)
-unfollow!	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/models/profile.rb	  def unfollow!(other_profile)
-update	/home/nathana/Área de trabalho/oxstormrider-Fakebook-ed7fe28/app/controllers/profiles_controller.rb	  def update
+1345405136
+AddColumnsToUsers	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120815183247_add_columns_to_users.rb	class AddColumnsToUsers 
+AddCriador	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120819193750_add_criador.rb	class AddCriador 
+Application	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/config/application.rb	  class Application 
+ApplicationController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/application_controller.rb	class ApplicationController 
+ApplicationHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/application_helper.rb	module ApplicationHelper
+BrowsingTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/performance/browsing_test.rb	class BrowsingTest 
+CreateProfiles	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120802224816_create_profiles.rb	class CreateProfiles 
+CreateRelationships	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120814120857_create_relationships.rb	class CreateRelationships 
+DeviseCreateUsers	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120802222812_devise_create_users.rb	class DeviseCreateUsers 
+ErrorMessagesHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/error_messages_helper.rb	module ErrorMessagesHelper
+EventosController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	class EventosController 
+Fakebook	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/config/application.rb	module Fakebook
+FormBuilderAdditions	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/error_messages_helper.rb	  module FormBuilderAdditions
+HomeController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/home_controller.rb	class HomeController 
+HomeControllerTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/functional/home_controller_test.rb	class HomeControllerTest 
+HomeHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/home_helper.rb	module HomeHelper
+HomeHelperTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/helpers/home_helper_test.rb	class HomeHelperTest 
+LayoutHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/layout_helper.rb	module LayoutHelper
+OmniauthCallbacksController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/users/omniauth_callbacks_controller.rb	class Users::OmniauthCallbacksController 
+ParticipacaoEventosController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	class ParticipacaoEventosController 
+Profile	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/profile.rb	class Profile 
+ProfileTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/profile_test.rb	class ProfileTest 
+ProfilesController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	class ProfilesController 
+ProfilesControllerTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/functional/profiles_controller_test.rb	class ProfilesControllerTest 
+ProfilesHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/profiles_helper.rb	module ProfilesHelper
+ProfilesHelperTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/helpers/profiles_helper_test.rb	class ProfilesHelperTest 
+RegistrationsController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/registrations_controller.rb	class RegistrationsController 
+RegistrationsControllerTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/functional/registrations_controller_test.rb	class RegistrationsControllerTest 
+RegistrationsHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/registrations_helper.rb	module RegistrationsHelper
+RegistrationsHelperTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/helpers/registrations_helper_test.rb	class RegistrationsHelperTest 
+Relationship	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/relationship.rb	class Relationship 
+RelationshipTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/relationship_test.rb	class RelationshipTest 
+RelationshipsController	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/relationships_controller.rb	class RelationshipsController 
+RelationshipsControllerTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/functional/relationships_controller_test.rb	class RelationshipsControllerTest 
+RelationshipsHelper	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/relationships_helper.rb	module RelationshipsHelper
+RelationshipsHelperTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/helpers/relationships_helper_test.rb	class RelationshipsHelperTest 
+TestCase	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/test_helper.rb	class ActiveSupport::TestCase
+User	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/user.rb	class User 
+UserTest	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/unit/user_test.rb	class UserTest 
+after_sign_up_path_for	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/registrations_controller.rb	  def after_sign_up_path_for(resource)
+after_sign_up_path_for	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/users/omniauth_callbacks_controller.rb	  def after_sign_up_path_for(resource)
+change	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120802222812_devise_create_users.rb	  def change
+change	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120802224816_create_profiles.rb	  def change
+change	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120815183247_add_columns_to_users.rb	  def change
+change	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120814120857_create_relationships.rb	  def change
+create	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/relationships_controller.rb	  def create
+create	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def create
+create	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def create
+create	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def create
+destroy	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/relationships_controller.rb	  def destroy
+destroy	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def destroy
+destroy	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def destroy
+destroy	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def destroy
+down	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120819193750_add_criador.rb	  def down
+edit	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def edit
+edit	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def edit
+edit	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def edit
+error_messages	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/error_messages_helper.rb	    def error_messages(options = {})
+error_messages_for	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/error_messages_helper.rb	  def error_messages_for(*objects)
+facebook	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/users/omniauth_callbacks_controller.rb	  def facebook
+find_for_facebook_oauth	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/user.rb	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+follow!	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/profile.rb	  def follow!(other_profile)
+following?	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/profile.rb	  def following?(other_profile)
+index	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/home_controller.rb	  def index
+index	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def index
+index	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def index
+index	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def index
+javascript	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/layout_helper.rb	  def javascript(*args)
+new	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def new
+new	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def new
+new	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def new
+new_with_session	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/user.rb	def self.new_with_session(params, session)
+participar	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def participar
+pesquisa	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def pesquisa
+show	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def show
+show	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def show
+show	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def show
+show2	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def show2
+show_title?	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/layout_helper.rb	  def show_title?
+stylesheet	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/layout_helper.rb	  def stylesheet(*args)
+test_homepage	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/test/performance/browsing_test.rb	  def test_homepage
+title	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/helpers/layout_helper.rb	  def title(page_title, show_title = true)
+unfollow!	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/profile.rb	  def unfollow!(other_profile)
+up	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/db/migrate/20120819193750_add_criador.rb	  def up
+update	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/participacao_eventos_controller.rb	  def update
+update	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/profiles_controller.rb	  def update
+update	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/controllers/eventos_controller.rb	  def update
+with_profile	/home/nathana/Downloads/oxstormrider-Fakebook-47bbcd5/app/models/user.rb	def with_profile

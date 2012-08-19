@@ -1,0 +1,57 @@
+<% title   @evento.nome  %>
+<% @profile_id = current_user.profile.id %>
+
+<div id="lateral">
+
+    <div id= "image">
+      <center>
+       <%= image_tag("eventos.png", :alt=>"ok", :size=> "180x180")%>
+      </center>
+    </div>
+  </br>
+    <p>
+      <strong>Participantes:</strong>
+<% @participantes = @evento.profiles %>
+<table>
+<% for participante in @participantes %>
+	<tr><td><%= participante.full_name %></td></tr>
+<% end %>
+</table>
+    </p>
+
+<p>
+
+</p>
+</div><div id="conteudo">
+  
+<p>
+  <strong>Data:</strong>
+  <%= @evento.data.strftime('%d %b %Y') %>
+
+</p>
+<p>
+  <strong>Horario:</strong>
+    <%= @evento.data.strftime('%Hh') %>
+    
+    <%= @evento.data.strftime('%M') %>
+</p>
+
+
+<p>
+  <strong>Local:</strong>
+  <%= @evento.local %>
+</p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @evento.desc %>
+</p>
+  
+  
+</div>
+  <% unless @evento.profile_id != @profile_id %>
+	<%= link_to "Editar", edit_evento_path(@evento) %> |
+	<%= link_to "Excluir", @evento, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %> |
+  <% else %>
+<%= link_to 'New Participacao evento', evento_participacao_eventos_path  %>
+  <% end %>
+  <%= link_to "Voltar", eventos_path %>

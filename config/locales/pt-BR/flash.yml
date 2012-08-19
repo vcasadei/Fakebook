@@ -1,0 +1,28 @@
+pt-BR:
+  flash:
+    users:
+      create:
+        notice: "Sua conta foi criada com sucesso!"
+
+    sessions:
+      create:
+        alert: "E-mail/senha inválidos"
+
+    categories:
+      create:
+        notice: "Categoria criada com sucesso!"
+      update:
+        notice: "Categoria atualizada com sucesso!"
+      destroy:
+        notice: "A categoria '%{name}' foi removida!"
+
+    login:
+      required: "Você precisa estar logado para acessar esta página."
+
+    questions:
+      create:
+        notice: "Sua pergunta foi adicionada!"
+
+    answers:
+      create:
+        notice: "Sua resposta foi enviada!"

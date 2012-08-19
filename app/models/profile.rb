@@ -20,6 +20,9 @@ class Profile < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 attr_accessible :profile_attributes
+has_many :eventos, dependent: :destroy
+ has_many :participacao_eventos, foreign_key:"profile_id"
+ has_many :participations, through: :participacao_eventos, source: :evento
 
   #Functions
   def following?(other_profile)

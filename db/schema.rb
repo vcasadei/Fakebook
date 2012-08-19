@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815183247) do
+ActiveRecord::Schema.define(:version => 20120819193750) do
+
+  create_table "eventos", :force => true do |t|
+    t.integer  "profile_id"
+    t.string   "nome"
+    t.datetime "data"
+    t.string   "local"
+    t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "criador"
+  end
+
+  create_table "participacao_eventos", :id => false, :force => true do |t|
+    t.integer  "evento_id"
+    t.integer  "profile_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "participacao_eventos", ["evento_id", "profile_id"], :name => "index_relationships_on_evento_id_and_profile_id", :unique => true
+  add_index "participacao_eventos", ["evento_id"], :name => "index_participacao_eventos_on_evento_id"
+  add_index "participacao_eventos", ["profile_id"], :name => "index_relationships_on_profile_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "full_name"
