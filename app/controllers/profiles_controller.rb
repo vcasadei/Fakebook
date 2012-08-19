@@ -83,4 +83,16 @@ class ProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def following
+    @profile = current_user.profile
+    @followeds=@profile.followeds
+    render 'following'
+  end
+
+  def followers
+    @profile = current_user.profile
+    @profiles= @profile.followers
+    render 'followers'
+  end
 end
