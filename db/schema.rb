@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815183247) do
+ActiveRecord::Schema.define(:version => 20120818164448) do
+
+  create_table "conversa_ativas", :force => true do |t|
+    t.integer  "destinatario"
+    t.integer  "remetente"
+    t.integer  "status"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "mensagens", :force => true do |t|
+    t.integer  "destinatario"
+    t.integer  "remetente"
+    t.string   "mensagem"
+    t.integer  "lida"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "full_name"
@@ -59,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20120815183247) do
     t.datetime "updated_at",                             :null => false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "online"
+    t.integer  "signed_in"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
