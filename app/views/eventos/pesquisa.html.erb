@@ -1,19 +1,19 @@
-<% title "Eventos" %>
+<% title "Events" %>
 <% @profile_id = current_user.profile.id %>
-<p><%= link_to "Crie seu Evento", new_evento_path %></p>
+<p><%= link_to "Criate your Event", new_evento_path %></p>
 <%= form_for @search, :url => "/eventos/pesquisa" do |f| %>
 <table> 
   <tr>
-     <td>Nome:</td>  
+     <td>Name:</td>  
      <td>Local:</td>
-     <td>Dono do Evento:</td>
+     <td>Owner:</td>
   </tr> 
   <tr>
      <td><% String campo = 'nome' %>
         <%= f.text_field campo, size:20 %></td> 
      <td><%= f.text_field 'local', size:20 %></td> 
      <td><%= f.text_field 'criador', size:20 %></td>      
-     <td><%= f.submit "Pesquisar" %></td>
+     <td><%= f.submit "Search" %></td>
   </tr>
  </table> 
 <% end %>
@@ -24,15 +24,15 @@
    <% @eventos.each do|evento| %>
 	  <% @participacoes = evento.participacao_eventos %>
 	  <p>
-	  <tr><td><strong>Nome:</strong></td><td><%= evento.nome %></td></tr>
-	  <tr><td><strong>Data:</strong> </td><td><%= evento.data.strftime('%d %b %Y') %>
-	  <div id="spc"><div/></td><td>&#32;&#32;<%= link_to "Visualizar", evento %></td><td>
+	  <tr><td><strong>Name:</strong></td><td><%= evento.nome %></td></tr>
+	  <tr><td><strong>Date:</strong> </td><td><%= evento.data.strftime('%d %b %Y') %>
+	  <div id="spc"><div/></td><td>&#32;&#32;<%= link_to "View", evento %></td><td>
 	  <% unless evento.profile_id != @profile_id %>
-		<%= link_to "Editar", edit_evento_path(evento) %>
-		<%= link_to "Excluir", @evento, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %>
+		<%= link_to "Edit", edit_evento_path(evento) %>
+		<%= link_to "Delete", @evento, :confirm => 'Are you sure?', :method => :delete %>
 	  <% else %>
 		<% unless @participacoes.find(:first, :conditions => ["profile_id = ?", @profile_id]) %>
-			<%= link_to "Participar", evento_participacao_eventos_new_path(evento) %></td></tr>
+			<%= link_to "Join", evento_participacao_eventos_new_path(evento) %></td></tr>
 		<% end %>
 	  <% end %>
 	  <tr><td><strong>Local:</strong></td><td><%= evento.local %></td></tr>
@@ -40,4 +40,4 @@
 	  </p>
     <% end %>
 </table>
-<p><%= link_to "Voltar", home_index_path%></p>
+<p><%= link_to "Back", home_index_path%></p>
