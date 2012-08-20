@@ -1,0 +1,79 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.text_field_mural {
+	border: 1px solid #aaa;
+	width: 100%;
+}
+
+hr.linha_mural {
+	border: 0;
+	background-color: #aaa;
+	color: #aaa;
+	height: 1px;
+	width: 100%;
+}
+
+div.comment {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	margin-bottom: 2px;
+}
+
+div._like {
+	display: inline;
+}
+
+div.link_description {
+	height: 90px;
+	width: 420px;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	margin-bottom: 2px;
+	overflow: visible;
+}
+
+div.link_description p {
+	padding: 0px 10px;
+}
+
+
+div.link_description a, div.link_description a:hover,
+div.link_description a:visited, div.link_description a:link {
+	text-decoration: none; 
+	font-weight: bold;
+}
+
+div.link_description {
+	font-size: .8em;
+	color: #666;
+}
+
+div.link_description div.link_thumbnail,
+div.link_description img.link_image,
+div.link_description div.link_thumbnail img.video_play_icon  {
+	width: 120px; 
+	height: 90px; 
+}
+
+div.link_description div.link_thumbnail  {
+	padding-right: 10px;
+	display: inline; 
+	float: left;
+	position: relative;
+}
+
+div.link_description div.link_thumbnail img.video_play_icon {
+	z-index: 1;
+	position: absolute;	
+	cursor: pointer;
+}
+
+div.link_description img.link_image {
+	z-index: 0;
+	position: absolute;
+}

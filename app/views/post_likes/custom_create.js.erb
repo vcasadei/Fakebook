@@ -1,0 +1,15 @@
+$('#post_like_<%= @post.id %>').html(
+		<% if @post.post_likes.size > 0 %>
+			<% if @post.post_likes.size == 1 %>
+			"<p><%= @post.post_likes.first.user.profile.full_name %>  likes this.</p>"
+			<% else %>
+			"<p><%= @post.post_likes.size %> people likes this.</p>"
+			<% end %>
+		<% end %>
+);
+
+$('#post_like_link_<%= @post.id %>').html(
+	"<a href='<%= custom_destroy_post_post_like_path(@post, @like) %>' data-remote='true'>Unlike</a>"
+);
+
+

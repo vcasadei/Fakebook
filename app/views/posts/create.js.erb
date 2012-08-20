@@ -1,0 +1,11 @@
+$('div#posts').prepend("<%= escape_javascript(render @post) %>");
+$('div#<%= dom_id(@post) %>').fadeIn();
+$('input#post_content').val('');
+$('input#post_content').focus();
+
+$('div.link_description div.link_thumbnail img.video_play_icon').click(function(event) { 
+	event.preventDefault();
+	id = $(this).attr('data');
+	$('div#link_description_' + id).fadeOut();
+	$('div#video_player_' + id).fadeIn();
+});

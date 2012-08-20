@@ -1,0 +1,15 @@
+$('#comment_like_<%= @comment.id %>').html(
+		<% if not @comment.comment_likes.empty? %>
+			<% if @comment.comment_likes.size == 1 %>
+			"<p><%= @comment.comment_likes.first.user.profile.full_name %>  likes this.</p>"
+			<% else %>
+			"<p><%= @comment.comment_likes.size %> people likes this.</p>"
+			<% end %>
+		<% end %>
+);
+
+$('#comment_like_link_<%= @comment.id %>').html(
+	"<a href='<%= custom_destroy_comment_comment_like_path(@comment, @like) %>' data-remote='true'>Unlike</a>"
+);
+
+

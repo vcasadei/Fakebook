@@ -1,0 +1,29 @@
+		<%= div_for comment, :class => 'comment' do %>
+			<p><b><%= comment.user.profile.full_name %>:</b> <%= comment.body %></p>
+			
+			<div id="comment_like_<%= comment.id %>" class="_like">
+			<% if not comment.comment_likes.empty? %>
+				<% if comment.comment_likes.size == 1 %>
+				<p><%= comment.comment_likes.first.user.profile.full_name %>  likes this.</p>
+				<% else %>
+				<p><%= comment.comment_likes.size %> people likes this.</p>
+				<% end %>
+			<% end %>
+			</div>
+						
+			<% if comment.user == current_user || comment.post.user == current_user %>
+			<%= link_to 'Destroy Comment', [comment.post, comment],
+							:confirm => 'Are you sure?',
+							:method => :delete, remote: true %> |
+			<% end %>
+			
+			<% likes = comment.comment_likes.where(:user_id => current_user) %>
+			<div id="comment_like_link_<%= comment.id %>" class="_like">
+			<% if likes.size > 0 %>
+				<%= link_to 'Unlike', custom_destroy_comment_comment_like_path(comment, likes.first), remote: true %>
+			<% else %>
+				<%= link_to 'Like', custom_create_comment_comment_likes_path(comment), remote: true %>
+			<% end %>
+			</div>
+
+		<% end %>

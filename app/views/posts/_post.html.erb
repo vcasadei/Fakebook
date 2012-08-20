@@ -1,0 +1,148 @@
+	<%= div_for post do %>
+		<p>
+			<b><%= post.user.profile.full_name %>:</b><br />
+			<!-- tratamento do conteudo -->
+			<% content = post.content %>
+			<% uris = URI.extract(content) %>
+
+			<% uris.each do |uri| %>
+				<% content.gsub!(uri, 
+					'<a href="' + uri + '" target="_blank">' + uri + '</a>') %>
+			<% end %>
+			
+			<%= content.html_safe %><br />
+			
+			<% 
+				if not uris.empty? then # existem uris
+					uri = uris.first
+					require 'mechanize'
+					agent = Mechanize.new
+					uri_split = uri.split('?')
+					
+					# tratamento de erro ao requisitar página
+					begin
+
+						if uri_split.size > 1 then
+							params = uri_split[1].split('&')
+							uri_obj 	= agent.get(uri_split[0], params)
+						else
+							uri_obj 	= agent.get(uri_split[0])
+						end
+						uri_class	= uri_obj.class
+				 	
+				 		if uri_class == Mechanize::Image then %>
+							<!-- imagem -->
+							<%= image_tag uri %>
+							<!-- fim imagem -->
+			<% 		else # não é imagem 
+							if uri_class == Mechanize::Page then  %>
+							<% if not uri_split[0].index("youtube.com").nil? and params.size > 0 %>
+								<!-- video -->
+								<% require 'youtube_it' %>
+								<% client = YouTubeIt::Client.new %>
+								<% video = client.video_by(uri) %>
+							
+								<div id="video_player_<%= post.id %>" style="display: none;">
+								<%= video.embed_html(width = 325, height = 250).html_safe %>
+								</div>
+								<div id="link_description_<%= post.id %>" class="link_description">
+									<div id="link_thumbnail_<%= post.id %>" class="link_thumbnail">
+										<img src="<%= image_path 'play-icon-thumbnail.png' %>" id="video_play_button_<%= post.id %>" class="video_play_icon" data="<%= post.id %>" />
+										<%= image_tag video.thumbnails[0].url, :class => 'link_image' %>
+									</div>
+									<div style="display: inline; position: relative;">
+										<p>
+											<a href="<%= uri %>"><%= uri_obj.title %></a><br />
+											<span class="link_host"><%= URI(uri).host %>
+										</p>
+									</div>
+								</div>
+								<!-- fim video -->
+							<% else %>
+								<!-- pagina comum -->
+								<div id="link_description_<%= post.id %>" class="link_description">
+									<div style="display: inline; position: relative;">
+									<p>
+										<a href="<%= uri %>"><%= uri_obj.title %></a><br />
+										<span class="link_host"><%= URI(uri).host %>
+									</p>
+									</div>
+								</div>
+								<!-- fim pagina comum -->
+							<% end %>
+			<%
+							end
+						end	# fim não é imagem
+
+					rescue
+			%>
+					<div id="link_description_<%= post.id %>" class="link_description">
+						<div style="display: inline; position: relative;">
+						<p style="padding: 0px; margin: 5px; text-align: center;">
+							<img src="<%= image_path 'loading.gif' %>" /><br />
+							LOADING
+						</p>
+						</div>
+					</div>
+			<%
+					end
+					# fim tratamento
+						
+				end # fim existem uris
+			%>
+
+			<!-- fim tratamento do conteudo -->
+		</p>
+		
+		<div id="post_like_<%= post.id %>" class="_like">
+		<% if post.post_likes.size > 0 %>
+			<% if post.post_likes.size == 1 %>
+			<p><%= post.post_likes.first.user.profile.full_name %>  likes this.</p>
+			<% else %>
+			<p><%= post.post_likes.size %> people likes this.</p>
+			<% end %>
+		<% end %>
+		</div>
+		
+		<% if post.user == current_user %>
+			<%= link_to 'Destroy post', post, confirm: 'Are you sure?', 
+				method: :delete, remote: true %> | 
+		<% end %>
+		
+		<div id="post_like_link_<%= post.id %>" class="_like">
+		<% likes = post.post_likes.where(:user_id => current_user) %>
+		<% if likes.size > 0 %>
+			<%= link_to 'Unlike', custom_destroy_post_post_like_path(post, likes.first),
+					remote: true %>
+		<% else %>
+			<%= link_to 'Like', custom_create_post_post_likes_path(post), remote: true %>
+		<% end %>
+		</div>
+		
+		<!-- comentarios -->
+		<p style="font-weight: bold;">Comments</p>
+		<div id="comments_<%= post.id %>">
+		<% post.comments.each do |comment| %>
+			<%= render comment %>
+		<% end %>
+		</div>
+		<!-- fim comentarios -->
+			
+		<!-- formulario comentario -->
+		<div id="form_comment_<%= post.id %>">
+		<p style="font-weight: bold;">Add a comment:</p>
+		<%= form_for([post, post.comments.build], remote: :true) do |f| %>
+			<div class="field">
+				<%= f.text_field :body, :class => "text_field_mural" %>
+			</div>
+			<div class="actions">
+				<%= f.submit %>
+			</div>
+		<% end %>
+		</div>
+		<!-- fim formulario comentario -->
+		
+		<hr class="linha_mural" />
+	<% end %>
+	
+	

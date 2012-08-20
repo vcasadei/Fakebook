@@ -1,0 +1,4 @@
+$('div#comments_<%= @comment.post.id %>').append("<%= escape_javascript(render @comment) %>");
+$('div#comments_<%= @comment.post.id %>').fadeIn();
+$('div#form_comment_<%= @comment.post.id %> input#comment_body').val('');
+$('div#form_comment_<%= @comment.post.id %> input#comment_body').focus();
