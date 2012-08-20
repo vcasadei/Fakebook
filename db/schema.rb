@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819193750) do
+ActiveRecord::Schema.define(:version => 20120819231658) do
 
   create_table "conversa_ativas", :force => true do |t|
     t.integer  "destinatario"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120819193750) do
     t.string   "uid"
     t.integer  "online"
     t.integer  "signed_in"
+    t.integer  "privacy"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

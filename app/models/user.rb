@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :online, :signed_in
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :online, :signed_in, :privacy
   # attr_accessible :title, :body
   has_one :profile, dependent:   :destroy
   accepts_nested_attributes_for :profile
+  after_initialize :init
 #	accepts_nested_attributes_for :profile
 	attr_accessible :profile_attributes
 #do omniuath-facebook
@@ -21,7 +22,7 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.create( provider:auth.provider,
                          uid:auth.uid,
                          email:auth.info.email,
-                         password:Devise.friendly_token[0,20]
+                         password:'123456'
 #			#profile: Profile.create()
                          )
 	
@@ -40,10 +41,10 @@ def with_profile
 end
 
 
-after_initialize do
- # self.profile ||= self.build_profile()
-	#self.save
+def init
+	self.privacy ||='1'
 end
+
 
 def self.new_with_session(params, session)
 	#user.profile=user.profile.build()

@@ -36,7 +36,7 @@ module Fakebook
     # Configure the default encoding used in templates for Ruby 1.9.
     config.time_zone = "Brasilia"
     config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.yml").to_s]
-    config.i18n.default_locale = "pt-BR"
+    config.i18n.default_locale = :en
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.

@@ -5,6 +5,11 @@
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
+  
+  <div><%= f.label :email %><br />
+  <%= f.select(:privacy, [["Public", 1], ["Private", 0]]) %></div>
+  
+   
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
