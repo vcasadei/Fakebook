@@ -1,0 +1,29 @@
+
+<h1>Listing mensagens</h1>
+  <div id="conteudo2">
+
+ <%= paginate @mensagems %>
+<% @mensagems.each do |mensagem| %>
+
+ <div style="padding:10px;background:#eeeeee;border:1px solid #bbbbbb;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; width:500px">
+<p>  
+<strong>From: </strong><%= mensagem.remet %>
+</p>
+<p>  
+<strong>To: </strong><%= mensagem.dest %>
+</p>
+<p>
+<strong>Date: </strong> <%= mensagem.created_at.strftime('%d %b %Y') %>
+</p>
+<%= link_to 'Show', mensagem %> |
+   <%= link_to 'Destroy', mensagem, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'New Mensagem', new_mensagem_path %>
+</div>
+<br/>
+
+<% end %>
+   
+<br />
+
+</div>
+

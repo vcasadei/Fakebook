@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h1> Mensagem Reservada de <%= @mensagem.remet %></h1>
+<div id="conteudo">
+<p>
+ <div style="padding:20px;background:#eeeeee;border:1px solid #bbbbbb;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; width:500px">
+
+  <b>From:</b>
+  <%= @mensagem.remet %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @mensagem.dest %>
+</p>
+
+<p>
+  <b>Mensagen:</b>
+  <%= @mensagem.mensagem %>
+</p>
+<p>
+  <b>Date:</b>  
+<%= @mensagem.created_at.strftime('%d %b %Y') %>
+</p>
+  <b>Hour:</b>  
+<%= @mensagem.created_at.strftime( '%Hh %M min') %>
+</p>
+</div>
+<br>
+</br>
+<%= link_to 'Destroy', @mensagem, method: :delete, data: { confirm: 'Are you sure?' } %>|
+<%= link_to 'Back', mensagems_path %>
+
+</div>
