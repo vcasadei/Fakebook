@@ -114,6 +114,8 @@ function adicionaEmoticon(qual,id) {
    }
    function digita_mensagem(id, e) {
 
+      $('#chat_conversa_tudo_'+ id + ' h1').attr('class', 'normal');
+
       if(e.which == 13) {
 
        $.post('/mensagens/envia_mensagem',
@@ -191,6 +193,8 @@ $('#chat_textarea_'+ id).keyup(function(e) {digita_mensagem(id, e);});
        }
 
        }
+
+     $('#chat_conversa_tudo_'+ id + ' h1').attr('class', 'novo');
 
    }
 

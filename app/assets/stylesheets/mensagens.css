@@ -153,19 +153,22 @@ float: left;
     margin: 0;
     border: 0;
     border-bottom: 1px solid #999 !important;
+  }
+
+  .chat_conversa_tudo h1.novo {
+    background-image: linear-gradient(bottom, rgb(150,0,0) 7%, rgb(255,0,0) 54%);
+    background-image: -o-linear-gradient(bottom, rgb(150,0,0) 7%, rgb(255,0,0) 54%);
+    background-image: -moz-linear-gradient(bottom, rgb(150,0,0) 7%, rgb(255,0,0) 54%);
+    background-image: -webkit-linear-gradient(bottom, rgb(150,0,0) 7%, rgb(255,0,0) 54%);
+    background-image: -ms-linear-gradient(bottom, rgb(150,0,0) 7%, rgb(255,0,0) 54%);
+  }
+
+  .chat_conversa_tudo h1.normal {
     background-image: linear-gradient(bottom, rgb(0,0,0) 7%, rgb(71,71,71) 54%);
     background-image: -o-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(71,71,71) 54%);
     background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(71,71,71) 54%);
     background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(71,71,71) 54%);
     background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 7%, rgb(71,71,71) 54%);
-
-    background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.07, rgb(0,0,0)),
-	color-stop(0.54, rgb(71,71,71))
-   );
   }
 
    .emoticons {
