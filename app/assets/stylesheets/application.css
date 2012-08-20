@@ -2,6 +2,7 @@ body {
   background-color: #D2DCE5;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  height:100%;
 }
 
 a img {
@@ -233,3 +234,55 @@ text-decoration:none;
 a:active { 
 color: #000; 
 }
+
+.paginate {
+  background: #eee;
+  border-radius: 5px;
+  list-style: none;
+  margin-top: 15px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.paginate li {
+  display: inline;
+}
+
+.paginate .previous-page,
+.paginate .next-page {
+  position: absolute;
+}
+
+.paginate .next-page {
+  right: 5px;
+}
+
+.paginate .previous-page {
+  left: 5px;
+}
+
+.paginate a {
+  background: #fff;
+  border: 1px solid #aaa;
+  color: #222;
+}
+
+.paginate .disabled span {
+  background: #f3f3f3;
+  border: 1px solid #ccc;
+  color: #909090;
+}
+
+.paginate a,
+.paginate .disabled span {
+  border-radius: 3px;
+  padding: 5px 8px;
+  text-decoration: none;
+}
+
+.paginate .page {
+  color: #777;
+  font-weight: bold;
+}
+

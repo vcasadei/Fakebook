@@ -12,7 +12,7 @@
      <td><% String campo = 'nome' %>
         <%= f.text_field campo, size:20 %></td> 
      <td><%= f.text_field 'local', size:20 %></td> 
-     <td><%= f.text_field 'full_name', size:20 %></td>      
+     <td><%= f.text_field 'criador', size:20 %></td>      
      <td><%= f.submit "Pesquisar" %></td>
   </tr>
  </table> 
@@ -22,6 +22,7 @@
 <hr/>
 <table>
    <% @eventos.each do|evento| %>
+	  <% @participacoes = evento.participacao_eventos %>
 	  <p>
 	  <tr><td><strong>Nome:</strong></td><td><%= evento.nome %></td></tr>
 	  <tr><td><strong>Data:</strong> </td><td><%= evento.data.strftime('%d %b %Y') %>
@@ -30,7 +31,9 @@
 		<%= link_to "Editar", edit_evento_path(evento) %>
 		<%= link_to "Excluir", @evento, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %>
 	  <% else %>
-		<%= link_to "Participar", evento_participar_path(evento), :confirm => 'tem certeza que deseja participar do evento?' %></td></tr>
+		<% unless @participacoes.find(:first, :conditions => ["profile_id = ?", @profile_id]) %>
+			<%= link_to "Participar", evento_participacao_eventos_new_path(evento) %></td></tr>
+		<% end %>
 	  <% end %>
 	  <tr><td><strong>Local:</strong></td><td><%= evento.local %></td></tr>
 	  <tr><td><div id="spc2"><div/><td> </tr>

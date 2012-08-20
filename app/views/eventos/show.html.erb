@@ -1,6 +1,6 @@
 <% title   @evento.nome  %>
 <% @profile_id = current_user.profile.id %>
-
+<% @participations = @evento.participacao_eventos %>
 <div id="lateral">
 
     <div id= "image">
@@ -36,6 +36,10 @@
     <%= @evento.data.strftime('%M') %>
 </p>
 
+<p>
+  <strong>Criador:</strong>
+  <%= @evento.criador %>
+</p>
 
 <p>
   <strong>Local:</strong>
@@ -45,13 +49,18 @@
   <strong>Descrição:</strong>
   <%= @evento.desc %>
 </p>
-  
-  
-</div>
   <% unless @evento.profile_id != @profile_id %>
 	<%= link_to "Editar", edit_evento_path(@evento) %> |
 	<%= link_to "Excluir", @evento, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %> |
   <% else %>
-<%= link_to 'New Participacao evento', evento_participacao_eventos_path  %>
+<% unless @participations.find(:first, :conditions => ["profile_id = ?", @profile_id]) %>
+			<%= link_to "Participar", evento_participacao_eventos_new_path(@evento) %></td></tr>
+		<% end %>
   <% end %>
   <%= link_to "Voltar", eventos_path %>
+ <br>
+ <br/>
+  <br>
+ <br/>
+  
+</div>

@@ -24,11 +24,18 @@ class ParticipacaoEventosController < ApplicationController
   # GET /participacao_eventos/new
   # GET /participacao_eventos/new.json
   def new
-    @participacao_evento = current_user.profile.participacao_eventos
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @participacao_evento }
+    @evento = Evento.find(params[:evento_id])
+    @profile = current_user.profile
+	@participacao_evento = @profile.participacao_eventos.build("evento_id" => @evento.id, "profile_id" => @profile.id)
+	
+	respond_to do |format|
+      if @participacao_evento.save
+        format.html { redirect_to eventos_url, notice: 'Participationship was successfully created.' }
+        format.json { render json: @participacao_evento, status: :created, location: @participacao_evento }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @participacao_evento.errors, status: :unprocessable_entity }
+      end
     end
   end
 

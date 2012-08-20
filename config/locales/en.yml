@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  paginate:
+    previous: "Previous"
+    next: "Next"
+    page: "Page %{page}"
