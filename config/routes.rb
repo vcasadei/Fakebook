@@ -1,4 +1,6 @@
 Fakebook::Application.routes.draw do
+  resources :mensagems
+
   root :to => 'home#index'
   get "home/index"
 

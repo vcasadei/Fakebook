@@ -81,7 +81,7 @@ end
     @relationship.destroy
 
     respond_to do |format|
-      format.html { redirect_to relationships_url }
+      format.html { redirect_to '/' }
       format.json { head :no_content }
     end
   end

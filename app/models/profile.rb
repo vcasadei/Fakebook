@@ -22,6 +22,7 @@ attr_accessible :profile_attributes
 has_many :eventos, dependent: :destroy
  has_many :participacao_eventos, foreign_key:"profile_id"
  has_many :participations, through: :participacao_eventos, source: :evento
+  has_many :mensagems, dependent: :destroy
 
   #Functions
   def following?(other_profile)

@@ -1,0 +1,29 @@
+<%= form_for(@mensagem) do |f| %>
+  <% if @mensagem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mensagem.errors.count, "error") %> prohibited this mensagem from being saved:</h2>
+
+      <ul>
+      <% @mensagem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  	<p>
+    <%= f.label :para %><br />
+    <%= f.text_field :dest %>
+    </p>
+    <p>
+    <%= f.label :mensagem %><br />
+    <%= f.text_area :mensagem %>
+    </p>
+    <%= f.hidden_field :dono , :value => current_user.profile.full_name %>
+    <%= f.hidden_field :remet , :value => current_user.profile.full_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
