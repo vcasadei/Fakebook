@@ -12,7 +12,7 @@
 
 <p>
   <b>Website:</b>
-  <% if current_user.profile.followers.exists?(:id => @profile.id) or current_user.profile.id==@profile.id  %>
+<% if current_user.profile.followers.exists?(:id => @profile.id) or current_user.profile.id==@profile.id or @profile.user.privacy == 1  %>
   <%= @profile.website %>
   <% else %>
   <b>Privado </b>
@@ -21,7 +21,7 @@
 
 <p>
   <b>Contact email:</b>
-  <% if current_user.profile.followers.exists?(:id => @profile.id) or current_user.profile.id==@profile.id  %>
+<% if current_user.profile.followers.exists?(:id => @profile.id) or current_user.profile.id==@profile.id or @profile.user.privacy == 1  %>
   <%= @profile.contact_email %>
   <% else %>
   <b>Privado </b>
@@ -30,7 +30,7 @@
 
 <p>
   <b>Birthday:</b>
-  <% if current_user.profile.followers.exists?(:id => @profile.id) or current_user.profile.id==@profile.id  %>
+  <% if current_user.profile.followers.exists?(:id => @profile.id) or current_user.profile.id==@profile.id or @profile.user.privacy == 1  %>
   <%= @profile.birthday %>
   <% else %>
   <b>Privado </b>
