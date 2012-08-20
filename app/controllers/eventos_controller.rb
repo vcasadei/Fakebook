@@ -1,4 +1,9 @@
 class EventosController < ApplicationController
+
+before_filter do
+  authenticate_user! rescue redirect_to auth_url
+end  
+
   def index
     @search = Search.new(:evento, params[:search])
 

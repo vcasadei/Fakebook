@@ -1,6 +1,10 @@
 class RelationshipsController < ApplicationController
   # GET /relationships
   # GET /relationships.json
+    before_filter do
+  authenticate_user! rescue redirect_to auth_url
+end  
+  
   def index
     @relationships = current_user.profile.relationships
 

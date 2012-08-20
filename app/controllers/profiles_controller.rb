@@ -1,6 +1,10 @@
 class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
+before_filter do
+  authenticate_user! rescue redirect_to auth_url
+end  
+  
   def index
     @profiles = Profile.all
 

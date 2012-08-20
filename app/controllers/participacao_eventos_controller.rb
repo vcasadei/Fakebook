@@ -1,6 +1,11 @@
 class ParticipacaoEventosController < ApplicationController
   # GET /participacao_eventos
   # GET /participacao_eventos.json
+  
+  before_filter do
+  authenticate_user! rescue redirect_to auth_url
+end  
+  
   def index
     @participacao_eventos = ParticipacaoEvento.all
 

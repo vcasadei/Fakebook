@@ -86,7 +86,7 @@ class MensagensController < ApplicationController
   # verifica quais usuários estão online
   def getOnlineUsers
 
-    @user = User.find(:all, :conditions => ['users.id <> ? AND users.signed_in = 1 AND users.online', current_user.id], :joins => :profile, :select => "users.id, profiles.full_name")
+    @user = User.find(:all, :conditions => ['users.id <> ? AND users.signed_in = 1 AND users.online = 1', current_user.id], :joins => :profile, :select => "users.*, profiles.*")
 
     respond_to do |format|
       format.json { render :json => @user}
