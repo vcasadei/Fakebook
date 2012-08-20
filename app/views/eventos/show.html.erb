@@ -25,19 +25,19 @@
 </div><div id="conteudo">
   
 <p>
-  <strong>Data:</strong>
+  <strong>Date:</strong>
   <%= @evento.data.strftime('%d %b %Y') %>
 
 </p>
 <p>
-  <strong>Horario:</strong>
+  <strong>Hour:</strong>
     <%= @evento.data.strftime('%Hh') %>
     
     <%= @evento.data.strftime('%M') %>
 </p>
 
 <p>
-  <strong>Criador:</strong>
+  <strong>Created by:</strong>
   <%= @evento.criador %>
 </p>
 
@@ -46,18 +46,18 @@
   <%= @evento.local %>
 </p>
 <p>
-  <strong>Descrição:</strong>
+  <strong>Description:</strong>
   <%= @evento.desc %>
 </p>
   <% unless @evento.profile_id != @profile_id %>
-	<%= link_to "Editar", edit_evento_path(@evento) %> |
-	<%= link_to "Excluir", @evento, :confirm => 'Tem certeza que deseja excluir?', :method => :delete %> |
+	<%= link_to "Edit", edit_evento_path(@evento) %> |
+	<%= link_to "Delete", @evento, :confirm => 'Are you sure?', :method => :delete %> |
   <% else %>
 <% unless @participations.find(:first, :conditions => ["profile_id = ?", @profile_id]) %>
-			<%= link_to "Participar", evento_participacao_eventos_new_path(@evento) %></td></tr>
+			<%= link_to "Join", evento_participacao_eventos_new_path(@evento) %></td></tr>
 		<% end %>
   <% end %>
-  <%= link_to "Voltar", eventos_path %>
+  <%= link_to "Back", eventos_path %>
  <br>
  <br/>
   <br>
