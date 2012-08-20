@@ -1,14 +1,41 @@
 Fakebook::Application.routes.draw do
   root :to => 'home#index'
   get "home/index"
-resources :eventos do
-	post :pesquisa, on: :collection
-	resources :participacao_eventos
-	match '/participacao_eventos/new', :controller => 'participacao_eventos', :action => 'new'
-  member do
-    get :evento, :profile
-  end
-end
+
+  authenticated :user do
+	  resources :posts do
+	  	resources :comments
+	  	resources :post_likes do
+		  	get :custom_create, 	on: :collection
+		  	get	:custom_destroy, 	on: :member
+		  end
+	  end
+	end
+	
+	resources :comments do
+		resources :comment_likes do
+	  	get :custom_create, 	on: :collection
+	  	get	:custom_destroy, 	on: :member
+	  end
+	end
+  
+	resources :eventos do
+		post :pesquisa, on: :collection
+		resources :participacao_eventos
+		member do
+		  get :evento, :profile
+		end
+		match '/participar', :controller => 'eventos', :action => "participar"
+	end
+  
+	resources :eventos do
+		post :pesquisa, on: :collection
+		resources :participacao_eventos
+		match '/participacao_eventos/new', :controller => 'participacao_eventos', :action => 'new'
+		member do
+		  get :evento, :profile
+		end
+	end
   resources :participacao_eventos
   match '/eventos/index', :controller => 'eventos', :action => "index"
   
@@ -26,6 +53,7 @@ end
     resources :profiles  do
       member do
         get :following, :followers
+        get :mural
       end
      
     end

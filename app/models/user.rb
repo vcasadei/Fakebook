@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         
+	# Grupo 3 - Mural
+	has_many :posts
+	has_many :comments
+	has_many :post_likes
+	has_many :comment_likes
+	# Fim Grupo 3 - Mural
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :online, :signed_in, :privacy

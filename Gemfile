@@ -35,6 +35,11 @@ end
 
 group :development do
   gem "nifty-generators"
+  
+	# Grupo 3 - Mural
+	gem 'mechanize'
+	gem 'youtube_it'
+	# Fim Grupo 3 - Mural 
 end
 
 # To use ActiveModel has_secure_password

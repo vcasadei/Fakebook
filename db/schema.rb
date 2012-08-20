@@ -13,6 +13,27 @@
 
 ActiveRecord::Schema.define(:version => 20120819231658) do
 
+  create_table "comment_likes", :force => true do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comment_likes", ["comment_id"], :name => "index_comment_likes_on_comment_id"
+  add_index "comment_likes", ["user_id"], :name => "index_comment_likes_on_user_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "conversa_ativas", :force => true do |t|
     t.integer  "destinatario"
     t.integer  "remetente"
@@ -51,6 +72,25 @@ ActiveRecord::Schema.define(:version => 20120819231658) do
   add_index "participacao_eventos", ["evento_id", "profile_id"], :name => "index_relationships_on_evento_id_and_profile_id", :unique => true
   add_index "participacao_eventos", ["evento_id"], :name => "index_participacao_eventos_on_evento_id"
   add_index "participacao_eventos", ["profile_id"], :name => "index_relationships_on_profile_id"
+
+  create_table "post_likes", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "post_likes", ["post_id"], :name => "index_post_likes_on_post_id"
+  add_index "post_likes", ["user_id"], :name => "index_post_likes_on_user_id"
+
+  create_table "posts", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "full_name"

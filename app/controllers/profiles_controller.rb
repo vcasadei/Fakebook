@@ -105,4 +105,25 @@ end
     @profiles= @profile.followers
     render 'followers'
   end
+  
+  # GET /profile/1/mural
+  # GET /profile/1/mural/1.json
+  def mural
+  	# @user = User.find(current_user)
+  	# TODO: pegar todos os posts de amigos
+  	@profile = Profile.find(params[:id])
+  	@posts = Array.new
+  	@posts.concat(@profile.user.posts)
+  	@profile.followeds.each do |friend|
+  		@posts.concat(friend.user.posts)
+  	end
+    @posts.sort! do |a, b| 
+    	b.created_at <=> a.created_at
+    end
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
 end
