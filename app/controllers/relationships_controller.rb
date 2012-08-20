@@ -49,7 +49,7 @@ end
 
     respond_to do |format|
       if @relationship.save
-        format.html { redirect_to root_, notice: 'Relationship was successfully created.' }
+        format.html { redirect_to @profile, notice: 'Relationship was successfully created.' }
         format.json { render json: @relationship, status: :created, location: @relationship }
       else
         format.html { render action: "new" }
