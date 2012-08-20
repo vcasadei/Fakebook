@@ -23,8 +23,9 @@ end
       member do
         get :following, :followers
       end
-      resources :relationships
+     
     end
+     resources :relationships
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
