@@ -38,7 +38,13 @@ end
 
   # GET /profiles/1/edit
   def edit
-    @profile = Profile.find(params[:id])
+  	
+    	@profile = Profile.find(params[:id])
+    if @profile != current_user.profile
+  		redirect_to '/'
+  		flash[:error] = "You don't have permission"
+  	end
+  	
   end
 
   # POST /profiles
@@ -64,7 +70,7 @@ end
   # PUT /profiles/1.json
   def update
     @profile = Profile.find(params[:id])
-
+	
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
