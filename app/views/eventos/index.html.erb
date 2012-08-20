@@ -12,7 +12,7 @@
      <td><% String campo = 'nome' %>
         <%= f.text_field campo, size:20 %></td> 
      <td><%= f.text_field 'local', size:20 %></td> 
-     <td><%= f.text_field 'full_name', size:20 %></td>      
+     <td><%= f.text_field 'criador', size:20 %></td>      
      <td><%= f.submit "Pesquisar" %></td>
   </tr>
  </table> 
@@ -20,6 +20,7 @@
 
 <br/> 
 <hr/>
+<h3>Meus eventos</h3>
 <table>
    <% for evento in @eventos %>
 	  <p>
@@ -37,5 +38,20 @@
 	  </p>
     <% end %>
     <%= paginate @eventos %>
+</table>
+
+<% @participacoes = current_user.profile.participations %>
+<h3>Eventos com participacao confirmada</h3>
+<table>
+	<% for participacao in @participacoes %>
+		<p>
+		<tr><td><strong>Nome:</strong></td><td><%= participacao.nome %></td></tr>
+		<tr><td><strong>Data:</strong> </td><td><%= participacao.data.strftime('%d %b %Y') %><div id="spc"><div/></td>
+		<td>&#32;&#32;<%= link_to "Visualizar", participacao %></td>
+		<tr><td><strong>Local:</strong></td><td><%= participacao.local %>   </td></tr>
+		<tr><td><div id="spc2"><div/><td> </tr>
+	  </p>
+    <% end %>
+	<%= paginate @participacoes %>
 </table>
 <p><%= link_to "Voltar", home_index_path%></p>

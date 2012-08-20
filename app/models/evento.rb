@@ -5,7 +5,7 @@ class Evento < ActiveRecord::Base
  
 
   has_many :profiles, through: :participacao_eventos
-  attr_accessible :nome, :data, :local, :desc
+  attr_accessible :nome, :data, :local, :criador, :desc
   validates_presence_of :nome, :local, :message => "esta em branco"
   validates_uniqueness_of :nome, :message => "ja existe"   
   

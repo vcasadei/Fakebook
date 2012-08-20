@@ -4,12 +4,16 @@ Fakebook::Application.routes.draw do
 resources :eventos do
 	post :pesquisa, on: :collection
 	resources :participacao_eventos
+	match '/participacao_eventos/new', :controller => 'participacao_eventos', :action => 'new'
   member do
     get :evento, :profile
   end
-	match '/participar', :controller => 'eventos', :action => "participar"
 end
+  resources :participacao_eventos
   match '/eventos/index', :controller => 'eventos', :action => "index"
+  
+  
+  
   #resources :eventos do get :show2, on: :collection end
     #match'/eventos/show2', :controller => 'eventos', :action => 'show2'
   #match "/eventos/show2/:id" => "eventos#show2"
